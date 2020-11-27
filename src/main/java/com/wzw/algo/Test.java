@@ -1,7 +1,7 @@
 package com.wzw.algo;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import com.wzw.algo.array.ArrayList;
 
 /**
  * @Description 测试类
@@ -11,8 +11,11 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<Integer>(10);
-        System.out.println(list.size());
+        ArrayList<Integer> list = new ArrayList<Integer>(10);
+        list.add(1);
+        list.add(2);
+        list.add(null);
+        System.out.println(list.indexOf(null));
         //list.add(100, 20);
     }
 

@@ -50,12 +50,12 @@ public class ArrayList<E> {
      * @Date 2020/6/15 22:19
      **/
     public boolean contains(E element){
-        for(int i = 0; i< size; i++){
+        /*for(int i = 0; i< size; i++){
             if(elements[i].equals(element)){
                 return true;
             }
-        }
-        return false;
+        }*/
+        return indexOf(element) != ELEMENT_NO_FIND;
     }
 
     /**
@@ -123,11 +123,21 @@ public class ArrayList<E> {
      * @return int
      **/
     public int indexOf(E element){
-        for(int i=0; i<size; i++){
-            if(elements[i].equals(element)){
-                return i;
+        if(element == null){
+            for(int i=0; i<size; i++){
+                if(elements[i] == null){
+                    return i;
+                }
+            }
+        }else{
+            for(int i=0; i<size; i++){
+                //不能使用 elements[i].equals(element)这种方式，因为elements[i]可能为null
+                if(element.equals(elements[i])){
+                    return i;
+                }
             }
         }
+
         return ELEMENT_NO_FIND;
     }
 
