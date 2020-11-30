@@ -50,12 +50,7 @@ public class ArrayList<E> {
      * @Date 2020/6/15 22:19
      **/
     public boolean contains(E element){
-        for(int i = 0; i< size; i++){
-            if(elements[i].equals(element)){
-                return true;
-            }
-        }
-        return false;
+        return indexOf(element) != ELEMENT_NO_FIND;
     }
 
     /**
@@ -92,7 +87,10 @@ public class ArrayList<E> {
      * @Date 2020/6/15 22:23
      **/
     public void set(int index, E element){
-
+        if(index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("index="+index+",size="+size);
+        }
+        elements[index] = element;
     }
 
     /**
@@ -101,8 +99,11 @@ public class ArrayList<E> {
      * @Date 2020/6/15 22:25
      **/
     public void remove(E element){
-
-
+        int index = indexOf(element);
+        for(int i = index; i<size-1; i++){
+            elements[i] = elements[i+1];
+        }
+        size--;
     }
 
     /**
@@ -111,8 +112,10 @@ public class ArrayList<E> {
      * @Date 2020/6/15 22:24
      **/
     public E get(int index){
-
-        return null;
+        if(index <0 || index > size){
+            throw new IndexOutOfBoundsException("index="+index+",size="+size);
+        }
+        return (E) elements[index];
     }
 
     /**
