@@ -13,7 +13,7 @@ public class ArrayList<E> {
     private Object[] elements;
     /**默认容量**/
     private static final int DEFAULT_CAPACITY = 10;
-
+    /**元素找不到**/
     private static final int ELEMENT_NO_FIND = -1;
 
     public ArrayList() {
@@ -126,11 +126,21 @@ public class ArrayList<E> {
      * @return int
      **/
     public int indexOf(E element){
-        for(int i=0; i<size; i++){
-            if(elements[i].equals(element)){
-                return i;
+        if(element == null){
+            for(int i=0; i<size; i++){
+                if(elements[i] == null){
+                    return i;
+                }
+            }
+        }else{
+            for(int i=0; i<size; i++){
+                //不能使用 elements[i].equals(element)这种方式，因为elements[i]可能为null
+                if(element.equals(elements[i])){
+                    return i;
+                }
             }
         }
+
         return ELEMENT_NO_FIND;
     }
 
