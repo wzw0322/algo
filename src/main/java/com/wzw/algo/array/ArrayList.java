@@ -112,7 +112,7 @@ public class ArrayList<E> {
      * @Date 2020/6/15 22:24
      **/
     public E get(int index){
-        if(index <0 || index > size){
+        if(index <0 || index >= size){
             throw new IndexOutOfBoundsException("index="+index+",size="+size);
         }
         return (E) elements[index];
