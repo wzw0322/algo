@@ -15,7 +15,7 @@ public class Test {
         list.add(1);
         list.add(2);
         list.add(null);
-        System.out.println(list.indexOf(null));
+        System.out.println(list.contains(20));
         //list.add(100, 20);
     }
 

@@ -13,7 +13,7 @@ public class ArrayList<E> {
     private Object[] elements;
     /**默认容量**/
     private static final int DEFAULT_CAPACITY = 10;
-
+    /**元素找不到**/
     private static final int ELEMENT_NO_FIND = -1;
 
     public ArrayList() {
@@ -50,11 +50,6 @@ public class ArrayList<E> {
      * @Date 2020/6/15 22:19
      **/
     public boolean contains(E element){
-        /*for(int i = 0; i< size; i++){
-            if(elements[i].equals(element)){
-                return true;
-            }
-        }*/
         return indexOf(element) != ELEMENT_NO_FIND;
     }
 
