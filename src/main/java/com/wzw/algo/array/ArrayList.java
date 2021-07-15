@@ -103,7 +103,8 @@ public class ArrayList<E> {
         for(int i = index; i<size-1; i++){
             elements[i] = elements[i+1];
         }
-        size--;
+        //remove一个元素后，需要将最后面的那一个元素置空（后面的往前面移），以释放内存
+        elements[--size] = null;
     }
 
     /**
